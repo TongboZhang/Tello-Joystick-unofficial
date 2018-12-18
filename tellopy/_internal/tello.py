@@ -432,7 +432,7 @@ class Tello(object):
         pkt.add_byte(((axis3 << 11 | axis2) >> 5) & 0xff)
         pkt.add_byte(((axis4 << 11 | axis3) >> 2) & 0xff)
         pkt.add_byte(((axis4 << 11 | axis3) >> 10) & 0xff)
-        pkt.add_byte(((axis4 << 11 | axis3) >> 18) & 0xff)
+        pkt.add_byte(((axis4 << 11 | axis3) >> 18) & 0xff | 0x10)
         pkt.add_time()
         pkt.fixup()
         log.debug("stick command: %s" % byte_to_hexstring(pkt.get_buffer()))
